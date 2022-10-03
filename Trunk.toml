@@ -1,0 +1,22 @@
+# Run the project in dev mode
+
+[build]
+release = false
+target = "./index.html"
+
+# "Static" web files - the compiled yew project
+[serve]
+addr = "0.0.0.0"
+port = 9080
+
+# Where we expect the data/API server to be running
+[[proxy]]
+backend = "http://localhost:8021"
+rewrite = "/api/v1"
+
+# Rebuilds the theme using tailwind, if applicable
+[[hooks]]
+command = "sh"
+# Look at how to build prod at https://github.com/matiu2/tailwind-yew-builder/blob/master/prod.sh
+command_arguments = ["-c", "touch src/assets/*.css && make"]
+stage = "pre_build"
