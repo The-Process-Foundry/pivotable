@@ -1,62 +1,8 @@
-[package]
-authors = ["Dave Fogelson <dfogelson@theprocessfoundry.com>"]
-description = "Graph based table builder"
-edition = "2018"
-license = "MIT OR Apache-2.0"
-name = "pivotable"
-readme = "README.md"
-version = "0.1.0"
-
-[features]
-default = ["demo"]
-demo = ["fhl-common"]
-
-[dependencies]
-yew = {path = "../External/yew/packages/yew", features = ["csr"]}
-
-# Handle the data for the table. This will be renamed to Grapht, which uses gquery as its language
-# gquery = {path = "../GQuery/gquery"}
-
-# Graph based cache structure
-grapht = {path = "../Grapht"}
-
-# Error handling (TODO: Remove anyhow/thiserror)
-allwhat = {path = "../allwhat/core"}
-thiserror = "1.0.37"
-
-# Bindings to directly interface with the DOM and JS
-gloo = "0.8.0"
-
-# Browser document management
-web-sys = "0.3.60"
-
-# Basic JavaScript bindings
-wasm-bindgen = "0.2.83"
-wasm-bindgen-futures = "0.4.33"
-
-# Logging/Instrumentation
-tracing = "0.1.36"
-tracing-subscriber = {version = "0.3.15", features = ["env-filter", "json", "fmt", "std"]}
-
-# Unique Identifiers
-uuid = {version = "1.1.2", features = ["v4", "v5", "js"]}
-# [[example]]
-# crate-type = ["bin"]
-# name = "fishhead-labs"
-# path = "examples/fhl"
-
-# Need this to handle money
-rust_decimal = "1.26"
-rust_decimal_macros = "1.26"
-
-####------- Used for invoicing demo.
-#---  Temporary (Belong in other projects)
-
-# Wrapper for accessing fields in a struct using variants
-accessible = {path = "../Accessible/accessible"}
-
-# My demo database. TODO: Remove once FHL is up and running
-fhl-common = {path = "../FishheadLabs/fhl-common", optional = true}
-
-# serialization for sending errors across the net
-serde = {version = "1.0.145", features = ["derive"]}
+[workspace]
+exclude = [
+  "examples/*",
+]
+members = [
+  "packages/*",
+]
+resolver = "2"

@@ -1,0 +1,46 @@
+[package]
+authors = ["Dave Fogelson <dfogelson@theprocessfoundry.com>"]
+description = "Pivotable activity report example"
+edition = "2018"
+license = "MIT OR Apache-2.0"
+name = "display"
+readme = "README.md"
+version = "0.1.0"
+
+[dependencies]
+pivotable = {path = "../../packages/pivotable/"}
+
+yew = {path = "../../../External/yew/packages/yew", features = ["csr"]}
+
+####------- Used for invoicing demo.
+#---  Temporary (Belong in other projects)
+
+# Wrapper for accessing fields in a struct using variants
+accessible = {path = "../../../Accessible/accessible"}
+
+# My demo database. TODO: Remove once FHL is up and running
+# fhl-common = {path = "../FishheadLabs/fhl-common", optional = true}
+
+# serialization for sending errors across the net
+serde = {version = "1.0.145", features = ["derive"]}
+serde_yaml = "0.9.13"
+
+# Instrumenation/logging
+tracing = "0.1.36"
+
+# Basic JavaScript bindings
+gloo-utils = "0.1.5"
+js-sys = "0.3.60"
+wasm-bindgen = "0.2.83"
+wasm-bindgen-futures = "0.4.33"
+
+[dependencies.web-sys]
+features = [
+  'Headers',
+  'Request',
+  'RequestInit',
+  'RequestMode',
+  'Response',
+  'Window',
+]
+version = "0.3.60"

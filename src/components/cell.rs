@@ -1,3 +1,0 @@
-//! An individual table cell
-
-
